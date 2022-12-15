@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://corpltr74.corp.profisee.com/profisee/rest/",
+			"url": "https://corpltr74.corp.profisee.com/profisee/rest",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous",
 			"authHeaders": {
