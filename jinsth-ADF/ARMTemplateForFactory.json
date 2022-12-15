@@ -17,7 +17,7 @@
 		},
 		"ProfiseeRest_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://corpltr74.corp.profisee.com/profisee/rest/"
+			"defaultValue": "https://corpltr74.corp.profisee.com/profisee/rest"
 		}
 	},
 	"variables": {
@@ -107,11 +107,11 @@
 				"parameters": {
 					"FileName": {
 						"type": "string",
-						"defaultValue": "LearnProduct.csv"
+						"defaultValue": "LearnProduct.CSV"
 					},
 					"FileFolder": {
 						"type": "string",
-						"defaultValue": "profisee-input"
+						"defaultValue": "profisee-input/product"
 					}
 				},
 				"folder": {

@@ -17,7 +17,7 @@
 		},
 		"ProfiseeRest_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://corpltr74.corp.profisee.com/profisee/rest/"
+			"defaultValue": "https://corpltr74.corp.profisee.com/profisee/rest"
 		},
 		"containerUri": {
 			"type": "string",
