@@ -1,0 +1,9 @@
+{
+	"name": "jinsth-ADF",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "54b7f71a-cccf-41cc-a46b-7e2a0ca39644",
+		"tenantId": "e4ba15d0-7fe2-4bd4-a3ef-a97a4378231e"
+	}
+}
