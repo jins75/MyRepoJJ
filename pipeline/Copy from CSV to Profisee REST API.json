@@ -79,7 +79,7 @@
 			},
 			"FileFolder": {
 				"type": "string",
-				"defaultValue": "C:\\Users\\jinsth\\OneDrive - Profisee Group, Inc\\JinsTh\\Documents\\Mine\\Work\\Hands-on\\ADF"
+				"defaultValue": "profisee-input"
 			}
 		},
 		"folder": {
