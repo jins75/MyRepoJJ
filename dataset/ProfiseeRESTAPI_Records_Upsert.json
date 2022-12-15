@@ -1,0 +1,27 @@
+{
+	"name": "ProfiseeRESTAPI_Records_Upsert",
+	"properties": {
+		"description": "Profisee members update REST API call.",
+		"linkedServiceName": {
+			"referenceName": "ProfiseeRest",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"entityId": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Profisee REST API"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@concat(\n'records/',\ndataset().entityId, \n'/?isUpsert=true'\n)\n",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}

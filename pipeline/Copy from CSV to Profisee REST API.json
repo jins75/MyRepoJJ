@@ -1,0 +1,83 @@
+{
+	"name": "Copy from CSV to Profisee REST API",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy from CSV to Profisee REST API",
+				"description": "Copy records from ADLS Gen2 in CSV format to Profisee via the Profisee REST API.",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "RestSink",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": 10,
+						"requestMethod": "PATCH",
+						"writeBatchSize": 10000,
+						"httpCompressionType": "none"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "AdlsGen2BlobCsv",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": {
+								"value": "@pipeline().parameters.FileFolder",
+								"type": "Expression"
+							},
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ProfiseeRESTAPI_Records_Upsert",
+						"type": "DatasetReference",
+						"parameters": {
+							"entityId": {
+								"value": "@replace(pipeline().parameters.FileFolder, 'profisee-input/', '')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			},
+			"FileFolder": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "CSV Format"
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-09-25T15:29:08Z"
+	}
+}
