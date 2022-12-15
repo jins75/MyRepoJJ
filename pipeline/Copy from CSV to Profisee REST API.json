@@ -18,6 +18,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "Source System",
+								"value": "$$FILEPATH"
+							}
+						],
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true
@@ -68,10 +74,12 @@
 		],
 		"parameters": {
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "LearnProduct.csv"
 			},
 			"FileFolder": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "C:\\Users\\jinsth\\OneDrive - Profisee Group, Inc\\JinsTh\\Documents\\Mine\\Work\\Hands-on\\ADF"
 			}
 		},
 		"folder": {
