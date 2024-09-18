@@ -1,0 +1,96 @@
+{
+	"name": "Copy from Profisee REST API to CSV",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy from Profisee REST API to CSV",
+				"description": "Copy records from Profisee via the Profisee REST API to ADLS Gen2 in CSV format.",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"AbsoluteUrl": "$.nextPage"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ProfiseeRESTAPI_Records_Get",
+						"type": "DatasetReference",
+						"parameters": {
+							"entityId": {
+								"value": "@variables('EntityId')",
+								"type": "Expression"
+							},
+							"pageSize": 1000,
+							"attributes": " ",
+							"filter": " ",
+							"orderBy": " ",
+							"dbaFormat": 1,
+							"recordCodes": " "
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AdlsGen2BlobCsv1",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": {
+								"value": "@concat(variables('OutputContainer'), '/', variables('EntityId'))",
+								"type": "Expression"
+							},
+							"FileName": {
+								"value": "@concat(variables('EntityId'), '_', string(utcnow()), '.csv')",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"variables": {
+			"OutputContainer": {
+				"type": "String",
+				"defaultValue": "profisee-output"
+			},
+			"EntityId": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "CSV Format"
+		},
+		"annotations": [],
+		"lastPublishTime": "2020-09-25T15:29:08Z"
+	}
+}

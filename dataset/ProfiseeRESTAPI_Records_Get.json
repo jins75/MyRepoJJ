@@ -1,0 +1,51 @@
+{
+	"name": "ProfiseeRESTAPI_Records_Get",
+	"properties": {
+		"description": "Profisee members get REST API call.",
+		"linkedServiceName": {
+			"referenceName": "ProfiseeRest",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"entityId": {
+				"type": "string"
+			},
+			"pageSize": {
+				"type": "int",
+				"defaultValue": 1000
+			},
+			"attributes": {
+				"type": "string",
+				"defaultValue": " "
+			},
+			"filter": {
+				"type": "string",
+				"defaultValue": " "
+			},
+			"orderBy": {
+				"type": "string",
+				"defaultValue": " "
+			},
+			"dbaFormat": {
+				"type": "int",
+				"defaultValue": 1
+			},
+			"recordCodes": {
+				"type": "string",
+				"defaultValue": " "
+			}
+		},
+		"folder": {
+			"name": "Profisee REST API"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": {
+				"value": "@concat(\n'records/',\ndataset().entityId, \n'/?pageSize=', string(dataset().pageSize),\n'&attributes=', dataset().attributes,\n'&filter=', dataset().filter,\n'&orderBy=', dataset().orderBy,\n'&recordCodes=', dataset().recordCodes,\n'&dbaFormat=', string(dataset().dbaFormat)\n)",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
