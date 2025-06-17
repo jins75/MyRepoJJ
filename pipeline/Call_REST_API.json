@@ -16,6 +16,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"method": "DELETE",
+					"headers": {
+						"x-api-key": "0f121ad7eb07416887a6ff7f8e5aa4da"
+					},
 					"linkedServices": [
 						{
 							"referenceName": "ProfiseeRest",
