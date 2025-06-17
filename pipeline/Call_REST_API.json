@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "DeleteRecord",
+				"name": "DeleteRecord JinsTEST",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
