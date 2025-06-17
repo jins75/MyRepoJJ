@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Web1",
+				"name": "DeleteRecord",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -13,7 +13,15 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"method": "DELETE",
+					"url": "https://profiseecloud.com/PSTeamPOC/rest/v1/Records/jinsTEST?RecordCodes=1",
+					"authentication": {
+						"type": "MSI",
+						"resource": "0f121ad7eb07416887a6ff7f8e5aa4da"
+					}
+				}
 			}
 		],
 		"annotations": []
