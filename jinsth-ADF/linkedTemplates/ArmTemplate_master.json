@@ -17,7 +17,7 @@
 		},
 		"ProfiseeRest_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://corpltr74.corp.profisee.com/profisee/rest"
+			"defaultValue": "https://profiseecloud.com/PSTeamPOC//rest/v1"
 		},
 		"containerUri": {
 			"type": "string",
@@ -35,7 +35,7 @@
 		{
 			"name": "jinsth-ADF_ArmTemplate_0",
 			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2018-02-01",
+			"apiVersion": "2024-03-01",
 			"properties": {
 				"mode": "incremental",
 				"templateLink": {

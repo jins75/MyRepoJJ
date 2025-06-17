@@ -12,7 +12,7 @@
 			"value": "https://jinstorages.dfs.core.windows.net/"
 		},
 		"ProfiseeRest_properties_typeProperties_url": {
-			"value": "https://corpltr74.corp.profisee.com/profisee/rest"
+			"value": "https://profiseecloud.com/PSTeamPOC//rest/v1"
 		},
 		"containerUri": {
 			"value": ""
